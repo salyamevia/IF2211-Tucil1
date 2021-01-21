@@ -1,0 +1,10 @@
+ SEND
+ MORE+
+------
+MONEY
+
+FORTY
+  TEN
+  TEN+
+------
+SIXTY
