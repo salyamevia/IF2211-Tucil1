@@ -8,3 +8,8 @@ FORTY
   TEN+
 ------
 SIXTY
+
+ COCA
+ COLA+
+------
+OASIS
