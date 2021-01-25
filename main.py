@@ -5,26 +5,26 @@ import math
 # Read File
 filename = input("Enter filename (.txt only): ")
 
-f = open(filename+".txt", "r");
+f = open(filename+".txt", "r")
 
 # Assign to Array
-i = 0; j = 0; strAll = []; strTemp = [];
+i = 0; j = 0; strAll = []; strTemp = []
 for x in f:
     if (x == '\n'):
         #print("huh-hah"); print(strTemp);
-        x = f.readline(); 
-        strAll.append(strTemp); strTemp = [];
+        x = f.readline()
+        strAll.append(strTemp); strTemp = []
     
     if (x[0] == '-'):
-        x = f.readline();
-        x = x.strip(); 
-        strTemp.append(x);
+        x = f.readline()
+        x = x.strip()
+        strTemp.append(x)
     else:
-        x = x.strip().strip('+');
-        strTemp.append(x);
+        x = x.strip().strip('+')
+        strTemp.append(x)
 
     #print(x, end=" ");
-strAll.append(strTemp);
+strAll.append(strTemp)
 #print(strAll);
 
 # Timer On
@@ -33,23 +33,23 @@ start = time.time()
 # Asign to Unique Array
 def initCryp(arr):
     # Find Unique
-    arrFirst = []; res = [];
+    arrFirst = []; res = []
     for i in arr:
-        if (not(i[0] in arrFirst)): arrFirst.append(i[0]);
+        if (not(i[0] in arrFirst)): arrFirst.append(i[0])
         for j in i:
             if (not([j, 0] in res) and not(j.isspace())):
-                res.append([j, 0]);
+                res.append([j, 0])
     
     # Init Dict
-    d = {'assign' : res, 'firstPos' : arrFirst, 'combi' : {},
+    d = {'assign' : res, 'firstPos' : arrFirst, 'combi' : [],
             'arr' : arr, 'time' : 0, 'iter' : 0}
 
-    return d;
+    return d
     
-dictAll = [];
+dictAll = []
 d = initCryp(strAll[0])
 #a = initCryp(strAll[1])
-dictAll.append(d); #dictAll.append(a);
+dictAll.append(d) #dictAll.append(a);
 print(dictAll)
 
 # Shuffle + Timer + Iteration check
@@ -85,6 +85,7 @@ def shuffler(dicti):
 
     print(arr)
     print(sum(arr[:len(arr)-1]) , "   " , arr[-1:][0])
+    print(sum(arr[:len(arr)-1]) == arr[-1:][0])
 
     if (sum(arr[:len(arr)-1]) == arr[-1:][0]):
         dicti['combi'].append(dicti['assign'])
@@ -103,8 +104,15 @@ def shuffler(dicti):
     
 
 #d['iter'] = math.factorial(len(d['assign']))
-#for x in range(d['iter']): 
-shuffler(d)
+for x in range(200000): #d['iter']): 
+    shuffler(d)
     #if (x%1000 == 0) : print(x)
 
+#shuffler(d)
+#shuffler(d)
+#shuffler(d)
 print(d)
+
+# TO DO LIST :
+# COMBINATIONS BELUM KELUAR TOLOOONGGG WHAT IS WRONG
+# PROBABLY TRY NOT SO RANDOM APPROACH AAAAA
