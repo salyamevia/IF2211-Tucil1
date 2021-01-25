@@ -41,7 +41,7 @@ def initCryp(arr):
                 res.append([j, 0])
     
     # Init Dict
-    d = {'assign' : res, 'firstPos' : arrFirst, 'combi' : [],
+    d = {'assign' : res, 'firstPos' : arrFirst, 'permutate' : [], 'combi' : [],
             'arr' : arr, 'time' : 0, 'iter' : 0}
 
     return d
@@ -51,6 +51,24 @@ d = initCryp(strAll[0])
 #a = initCryp(strAll[1])
 dictAll.append(d) #dictAll.append(a);
 print(dictAll)
+
+# Checker
+def checker(dicti):
+    arr = []
+    for word in dicti['arr']:
+        li = []
+        for char in word:
+            temp = [str(k[1]) for k in dicti['assign'] if k[0] == char]
+            li.append(temp[0])
+        arr.append(int(''.join(li)))
+
+    #print(arr)
+    #print(sum(arr[:len(arr)-1]) , "   " , arr[-1:][0])
+    #print(sum(arr[:len(arr)-1]) == arr[-1:][0])
+
+    if (sum(arr[:len(arr)-1]) == arr[-1:][0]):
+        dicti['combi'].append(dicti['assign'])
+
 
 # Shuffle + Timer + Iteration check
 def shuffler(dicti):
@@ -74,43 +92,20 @@ def shuffler(dicti):
 
     #print(dicti['assign'])
 
-    # Assign to Place and Check
-    arr = []
-    for word in dicti['arr']:
-        li = []
-        for char in word:
-            temp = [str(k[1]) for k in dicti['assign'] if k[0] == char]
-            li.append(temp[0])
-        arr.append(int(''.join(li)))
-
-    print(arr)
-    print(sum(arr[:len(arr)-1]) , "   " , arr[-1:][0])
-    print(sum(arr[:len(arr)-1]) == arr[-1:][0])
-
-    if (sum(arr[:len(arr)-1]) == arr[-1:][0]):
-        dicti['combi'].append(dicti['assign'])
+# Permutate
+def permutate(dicti):
+    dicti['iter'] = math.factorial(len(d['assign']))
+    for i in range(dicti['iter']):   
+        shuffler(d)
+        dicti['permutate'].append(dicti['assign'])
+        checker(dicti)
     
-    #print(arr)
+    dicti['permutate'] = set(dicti['permutate'])
 
-    # Print
-    #print(dicti)
+permutate(d)
+# Timer Off
+d['time'] = time.time() - start
 
-    # Timer Off
-    dicti['time'] = time.time() - start
-    #print(dicti['time'])
-    #print('')
-    #print(dicti)
-
-    
-
-#d['iter'] = math.factorial(len(d['assign']))
-for x in range(200000): #d['iter']): 
-    shuffler(d)
-    #if (x%1000 == 0) : print(x)
-
-#shuffler(d)
-#shuffler(d)
-#shuffler(d)
 print(d)
 
 # TO DO LIST :
