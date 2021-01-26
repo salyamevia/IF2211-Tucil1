@@ -33,13 +33,13 @@ Iterations:1451520
 Time taken: 148.74766421318054
 Press ENTER to exit. To try again, you need to close and reopen the program.
 ```
-**Instalasi**
+**Instalasi**\
 Dalam pembuatan executable file, digunakan [PyInstaller](https://www.pyinstaller.org/). Agar menjamin executable dapat dijalankan, mohon jalankan command berikut pada command line.
 ```
 pip install pyinstaller
 ```
 
-**Cara Penggunaan**
+**Cara Penggunaan**\
 1. Input hanya dapat berupa file, sehingga buatlah terlebih dahulu file bereksistensi `.txt` yang berisi persoalan dengan format seperti contoh. Dalam satu file bisa terdapat lebih dari satu persoalan yang dipisahkan dengan enter. Contohnya seperti ini.
 
 ```
