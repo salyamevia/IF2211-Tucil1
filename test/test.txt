@@ -1,0 +1,42 @@
+ SEND
+ MORE+
+------
+MONEY
+
+FORTY
+  TEN
+  TEN+
+------
+SIXTY
+
+ COCA
+ COLA+
+------
+OASIS
+
+NUMBER
+NUMBER+
+-------
+PUZZLE
+
+  TILES
+PUZZLES+
+--------
+PICTURE
+
+CLOCK
+TICK
+ TOCK+
+------
+PLANET
+
+ HERE
+  SHE+
+------
+COMES
+
+DOUBLE
+DOUBLE
+  TOIL+
+--------
+TROUBLE

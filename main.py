@@ -37,11 +37,15 @@ def initCryp(arr):
     for i in arr:
         if (not(i[0] in arrFirst)): arrFirst.append(i[0])
         for j in i:
-            if (not([j, 0] in res) and not(j.isspace())):
-                res.append([j, 0])
+           #if (not([j, 0] in res) and not(j.isspace())):
+           if (not(j in res) and not(j.isspace())):
+                res.append(j)
     
     # Init Dict
-    d = {'assign' : res, 'firstPos' : arrFirst, 'permutate' : [], 'combi' : [],
+    #d = {'assign' : res, 'firstPos' : arrFirst, 'permutate' : [], 'combi' : [],
+    #        'arr' : arr, 'time' : 0, 'iter' : 0}
+    d = {'unique' : res, 'assign' : [0 for i in range(len(res))], 
+            'firstPos' : arrFirst, 'permutate' : [], 'combi' : [],
             'arr' : arr, 'time' : 0, 'iter' : 0}
 
     return d
@@ -55,13 +59,17 @@ print(dictAll)
 # Checker
 def checker(dicti):
     arr = []
+    
     for word in dicti['arr']:
         li = []
         for char in word:
-            temp = [str(k[1]) for k in dicti['assign'] if k[0] == char]
-            li.append(temp[0])
+            temp = dicti['assign'][dicti['unique'].index(char)]
+            li.append(str(temp))
         arr.append(int(''.join(li)))
-
+    #        temp = [str(k[1]) for k in dicti['assign'] if k[0] == char]
+    #        li.append(temp[0])
+    #    arr.append(int(''.join(li)))
+    
     #print(arr)
     #print(sum(arr[:len(arr)-1]) , "   " , arr[-1:][0])
     #print(sum(arr[:len(arr)-1]) == arr[-1:][0])
@@ -93,18 +101,56 @@ def shuffler(dicti):
     #print(dicti['assign'])
 
 # Permutate
-def permutate(dicti):
-    dicti['iter'] = math.factorial(len(d['assign']))
-    for i in range(dicti['iter']):   
-        shuffler(d)
-        dicti['permutate'].append(dicti['assign'])
-        checker(dicti)
+#def permutate(dicti):
+#    dicti['iter'] = math.factorial(len(d['assign']))
+#    for i in range(dicti['iter']):   
+#        shuffler(d)
+#        dicti['permutate'].append(dicti['assign'])
+#        checker(dicti)
     
-    dicti['permutate'] = set(dicti['permutate'])
+#    dicti['permutate'] = set(dicti['permutate'])
 
-permutate(d)
+def permutate(dicti):
+    def rand(dicti):
+        res = []
+        for i in range(len(dicti['unique'])):
+            if (dicti['unique'][i] in dicti['firstPos']):
+                temp = random.randint(1,9)
+                while (temp in res):
+                    temp = random.randint(1,9)
+            else:
+                temp = random.randint(0,9)
+                while (temp in res):
+                    temp = random.randint(0,9)
+            res.append(temp)
+        #print (res)
+        if res not in dicti['permutate']:
+            dicti['permutate'].append(res)
+        else:
+            while (res in dicti['permutate']):
+                res = rand(dicti)
+            dicti['permutate'].append(res)
+
+        return res
+
+    dicti['iter'] = int(math.factorial(10)/ math.factorial(10-len(dicti['unique']))) 
+    # This is too much, my pc can't handle
+    print("Iters: ", dicti['iter'])
+    for i in range(dicti['iter']):
+        print(i)
+        temp = rand(dicti)
+    
+
+
+#permutate(d)
 # Timer Off
 d['time'] = time.time() - start
+
+permutate(d)
+print("HUYE SELESAI")
+for permute in d['permutate']:
+    d['assign'] = permute
+    checker(d)
 
 print(d)
 
