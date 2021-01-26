@@ -39,7 +39,7 @@ Dalam pembuatan executable file, digunakan [PyInstaller](https://www.pyinstaller
 pip install pyinstaller
 ```
 
-**Cara Penggunaan**\
+**Cara Penggunaan**
 1. Input hanya dapat berupa file, sehingga buatlah terlebih dahulu file bereksistensi `.txt` yang berisi persoalan dengan format seperti contoh. Dalam satu file bisa terdapat lebih dari satu persoalan yang dipisahkan dengan enter. Contohnya seperti ini.
 
 ```
