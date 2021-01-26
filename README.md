@@ -33,6 +33,7 @@ Iterations:1451520
 Time taken: 148.74766421318054
 Press ENTER to exit. To try again, you need to close and reopen the program.
 ```
+---
 **Instalasi**\
 Dalam pembuatan executable file, digunakan [PyInstaller](https://www.pyinstaller.org/). Agar menjamin executable dapat dijalankan, mohon jalankan command berikut pada command line.
 ```
