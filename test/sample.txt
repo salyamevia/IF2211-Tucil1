@@ -1,0 +1,15 @@
+ SEND
+ MORE+
+------
+MONEY
+
+FORTY
+  TEN
+  TEN+
+------
+SIXTY
+
+ COCA
+ COLA+
+------
+OASIS
