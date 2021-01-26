@@ -1,5 +1,5 @@
 import time
-import loops
+import loops # File fungsi iterasi
 
 print("===== CRYPTARITHMETIC SOLVER =====")
 print("This program is using a brute force algorithm, so it may take some time depending on your computer power.")
