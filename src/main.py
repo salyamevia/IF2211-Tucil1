@@ -27,10 +27,7 @@ for x in f:
         strTemp.append(x)
 strAll.append(strTemp)
 
-#-------------- ASSIGN AND TIMER --------------#
-# Timer On
-start = time.time()
-
+#-------------- ASSIGN --------------#
 # Asign to Unique Array
 def initCryp(arr):
     # Find Unique
@@ -52,10 +49,11 @@ def initCryp(arr):
             'arr' : arr, 'time' : 0, 'iter' : 0}
 
     return d
-    
+
 #-------------- SOLVER --------------#
 # Permutate
 for problem in strAll:
+    start = time.time()
     print('--- Solving Problem ---')
     s = ' + '.join(problem[:len(problem)-1])
     s = s + ' = ' + problem[len(problem)-1]
@@ -99,6 +97,7 @@ for problem in strAll:
     
     d['time'] = time.time() - start
     print("Time taken: ", d['time'])
+    print("")
     #print(d)
 
 #-------------- DELAY --------------#
