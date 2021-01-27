@@ -1,3 +1,5 @@
+# ------------- EXPERIMENTAL PURPOSES ONLY ------------- #
+
 from itertools import chain, permutations
 from string import digits
 
