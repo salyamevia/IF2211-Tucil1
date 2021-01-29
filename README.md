@@ -1,6 +1,5 @@
 #  Cryptarithmetic Solver
-> Tugas Kecil 1 Mata Kuliah IF2211 Strategi Algoritma 
-> Bahasa : Python 3
+> Tugas Kecil 1 Mata Kuliah IF2211 Strategi Algoritma | Bahasa : Python 3
 
 Program ini akan menyelesaikan permasalahan Cryptarithmetic. Walaupun tidak begitu efektif dan efisien caranya, namun masih berfungsi 😋🤗. Contohnya adalah seperti ini.
 ```
